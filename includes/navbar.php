@@ -27,7 +27,7 @@
                     <a class="nav-link" href="vente-kamas.php">VENDRE KAMAS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ACHETER KAMAS</a>
+                    <a class="nav-link" href="achete-kamas.php">ACHETER KAMAS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-euro-sign"></i> Mes ventes</a>
