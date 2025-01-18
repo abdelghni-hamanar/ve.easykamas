@@ -1,3 +1,16 @@
+<?php
+// Include the database configuration file
+require_once 'config/database.php';
+
+// Fetch servers from the database
+try {
+    $stmt = $pdo->query("SELECT server_name, price, status FROM servers");
+    $servers = $stmt->fetchAll();
+} catch (PDOException $e) {
+    echo 'Error fetching servers: ' . $e->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,37 +25,40 @@
 
     <main>
         <!-- Main Section for Vente Kama -->
-        <section class="container my-5">
-            <h2 class="text-center mb-4">Vente de Kamas</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered text-center">
-                    <thead class="bg-warning text-dark">
+        <section>
+        <div class="container">
+            <h2 class="text-center">Liste des serveurs</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Serveur</th>
+                        <th>Prix (Kama)</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (!empty($servers)): ?>
+                        <?php foreach ($servers as $server): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($server['server_name']); ?></td>
+                                <td><?= htmlspecialchars($server['price']); ?></td>
+                                <td>
+                                    <span class="badge 
+                                        <?= $server['status'] == 'Incomplet' ? 'bg-success' : 'bg-danger'; ?>">
+                                        <?= htmlspecialchars($server['status']); ?>
+                                    </span>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
                         <tr>
-                            <th>Serveur</th>
-                            <th>Prix 1M</th>
-                            <th>Stock</th>
+                            <td colspan="3" class="text-center">Aucun serveur disponible.</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Orukam</td>
-                            <td>10.00 €</td>
-                            <td>Incomplet</td>
-                        </tr>
-                        <tr>
-                            <td>Tylezia</td>
-                            <td>9.50 €</td>
-                            <td>Stock complet</td>
-                        </tr>
-                        <tr>
-                            <td>Imagiro</td>
-                            <td>8.75 €</td>
-                            <td>Incomplet</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
     </main>
 
