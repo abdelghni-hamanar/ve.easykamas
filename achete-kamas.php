@@ -22,7 +22,20 @@ try {
     <style>
         .navbar-nav .nav-link.active {
             border-radius: 5px;
-             
+        }
+
+        /* Custom Chat Button Style */
+        #openChatSpan {
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #17a2b8;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        #openChatSpan:hover {
+            background-color: #138496;
         }
     </style>
 </head>
@@ -50,10 +63,10 @@ try {
                                 <td><?= htmlspecialchars($server['server_name']); ?></td>
                                 <td><?= htmlspecialchars($server['price']); ?>€/M</td>
                                 <td>
-                                    <span class="badge 
-                                        <?= $server['status'] == 'Incomplet' ? 'bg-success' : 'bg-danger'; ?>">
-                                        <?= htmlspecialchars($server['status']); ?>
-                                    </span>
+                                    <!-- Replace badge with Open Live Chat link -->
+                                    <center>
+                                        <a href="javascript:void(0);" id="openChatLink" onclick="openLiveChat()">Cliquez ici pour Vendre</a>
+                                    </center>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -66,10 +79,36 @@ try {
             </table>
         </div>
     </section>
-
     </main>
 
     <?php include_once 'includes/footer.php'; ?>
+
+    <!-- Live Chat Script (CDN) -->
+    <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=qnTohqUaQooG"></script>
+
+    <script>
+        // Function to open live chat window
+        function openLiveChat() {
+            // Check if LC_API is available
+            if (typeof LC_API !== 'undefined' && LC_API.open_chat_window) {
+                console.log("Opening live chat...");
+                LC_API.open_chat_window();
+            } else {
+                console.error("LC_API is not available. Please check the chatway script.");
+            }
+        }
+
+        // Ensure LC_API is loaded before attempting to use it
+        window.addEventListener('load', function() {
+            // Checking if LC_API is available
+            if (typeof LC_API === 'undefined') {
+                console.error("Live Chat API is not available. The script may not have loaded properly.");
+            } else {
+                console.log("Live Chat API is loaded and ready.");
+            }
+        });
+    </script>
+
 </body>
 <scripts src="assets/js/bootstrap.js"></scripts>
 <scripts src="assets/js/scripts.js"></scripts>
