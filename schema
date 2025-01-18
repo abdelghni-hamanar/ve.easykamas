@@ -1,0 +1,24 @@
+ve-easykamas/
+├── index.php                // Home page
+├── vente-kamas.php          // Vente Kamas page
+├── exchange-kama.php        // Exchange Kama page
+├── profile.php              // Profile page
+├── assets/                  // Assets folder for static files
+│   ├── css/
+│   │   └── styles.css        // Custom styles
+│   ├── js/
+│   │   └── scripts.js        // Custom scripts
+│   └── images/               // Images folder
+├── includes/                // Includes folder for reusable components
+│   ├── header.php            // Header component
+│   ├── footer.php            // Footer component
+│   └── navbar.php            // Navbar component
+├── config/
+│   └── database.php          // Database connection file
+├── classes/                 // Classes folder for PHP classes
+│   └── User.php              // User class
+│   └── Server.php            // Server class
+│   └── VenteTicket.php       // VenteTicket class
+│   └── EchangeTicket.php     // EchangeTicket class
+└── sql/
+    └── schema.sql            // SQL file with database schema
