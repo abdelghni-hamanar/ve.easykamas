@@ -21,9 +21,6 @@
                     <a class="nav-link active" href="index.php">ACCUEIL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">SERVICES</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">ECHANGER DES KAMAS</a>
                 </li>
                 <li class="nav-item">
