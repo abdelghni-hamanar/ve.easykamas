@@ -39,3 +39,6 @@
 
 <!-- Include Font Awesome for icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Live Chat Script -->
+<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=qnTohqUaQooG"></script>
+

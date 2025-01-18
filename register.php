@@ -43,7 +43,7 @@
             color: #333;
         }
 
-        input[type="text"], input[type="email"], input[type="password"] {
+        input[type="text"], input[type="email"], input[type="password"], textarea {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -128,7 +128,6 @@
             margin-right: 5px; /* Space between icon and text */
         }
 
-
     </style>
 </head>
 <body>
@@ -149,8 +148,24 @@
                     <input type="email" id="email" name="email" required placeholder="Enter your email">
                 </div>
                 <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter your phone number (optional)">
+                </div>
+                <div class="form-group">
+                    <label for="ville">City</label>
+                    <input type="text" id="ville" name="ville" placeholder="Enter your city (optional)">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Address</label>
+                    <textarea id="adresse" name="adresse" placeholder="Enter your address (optional)"></textarea>
+                </div>
+                <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm your password">
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
                 <div class="form-footer">
@@ -161,5 +176,6 @@
     </div>
 
     <?php include_once 'includes/footer.php' ?>
-</body>
+
+    </body>
 </html>
