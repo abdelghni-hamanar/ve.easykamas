@@ -41,7 +41,7 @@ try {
                         <?php foreach ($servers as $server): ?>
                             <tr>
                                 <td><?= htmlspecialchars($server['server_name']); ?></td>
-                                <td><?= htmlspecialchars($server['price']); ?></td>
+                                <td><?= htmlspecialchars($server['price']); ?>€/M</td>
                                 <td>
                                     <span class="badge 
                                         <?= $server['status'] == 'Incomplet' ? 'bg-success' : 'bg-danger'; ?>">
