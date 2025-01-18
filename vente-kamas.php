@@ -19,6 +19,12 @@ try {
     <title>My Website</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .navbar-nav .nav-link.active {
+            border-radius: 5px;
+             
+        }
+    </style>
 </head>
 <body>
     <?php include_once 'includes/navbar.php' ?>

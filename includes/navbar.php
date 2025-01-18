@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">ACCUEIL</a>
+                    <a class="nav-link active" href="index.php">ACCUEIL</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SERVICES</a>
@@ -27,7 +27,7 @@
                     <a class="nav-link" href="#">ECHANGER DES KAMAS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">VENDRE KAMAS</a>
+                    <a class="nav-link" href="vente-kamas.php">VENDRE KAMAS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ACHETER KAMAS</a>
