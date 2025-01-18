@@ -34,6 +34,7 @@ try {
         <section>
         <div class="container">
             <h2 class="text-center">Liste des serveurs</h2>
+            <br/>
             <table class="table table-striped">
                 <thead>
                     <tr>
