@@ -16,9 +16,9 @@ require_once 'config/database.php';
 $user_id = $_SESSION['user_id'];
 
 try {
-    // Fetch the user's vente tickets with server info, including server status
+    // Fetch the user's vente tickets with server info, including ticket status
     $stmt = $pdo->prepare("
-        SELECT vt.id AS ticket_id, s.server_name, vt.char_name, s.price, vt.quantity, vt.total, s.status
+        SELECT vt.id AS ticket_id, s.server_name, vt.char_name, s.price, vt.quantity, vt.total, vt.status AS ticket_status
         FROM ventetickets vt
         JOIN servers s ON vt.id_server = s.id
         WHERE vt.id_user = ?
@@ -62,7 +62,7 @@ try {
                         <th>Prix par serveur</th>
                         <th>Quantité</th>
                         <th>Total</th>
-                        <th>Status</th> <!-- New column for status -->
+                        <th>Status</th> <!-- New column for ticket status -->
                     </tr>
                 </thead>
                 <tbody>
@@ -77,8 +77,8 @@ try {
                                 <td><?= htmlspecialchars($ticket['total']); ?>€</td>
                                 <td>
                                     <span class="badge 
-                                        <?= $ticket['status'] == 'Incomplet' ? 'bg-success' : 'bg-danger'; ?>">
-                                        <?= htmlspecialchars($ticket['status']); ?>
+                                        <?= $ticket['ticket_status'] == 'Completed' ? 'bg-success' : 'bg-warning'; ?>">
+                                        <?= htmlspecialchars($ticket['ticket_status']); ?>
                                     </span>
                                 </td>
                             </tr>
