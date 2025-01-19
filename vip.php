@@ -43,7 +43,7 @@ try {
         <p class="text-center text-primary">Vendez vos kamas plus rapidement, sans passer par livechat.</p>
 
         <div class="card p-4">
-            <form action="process-vip.php" method="POST">
+            <form action="./classes/VenteTicket.php" method="POST">
                 <div class="mb-3">
                     <label for="server" class="form-label">Serveur</label>
                     <select class="form-select" id="server" name="server" required>
