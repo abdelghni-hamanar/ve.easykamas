@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107;">
     <div class="container">
@@ -17,6 +18,7 @@
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+                <!-- Links that are visible to all users -->
                 <li class="nav-item">
                     <a class="nav-link active" href="index.php">ACCUEIL</a>
                 </li>
@@ -29,15 +31,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="achete-kamas.php">ACHETER KAMAS</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-euro-sign"></i> Mes ventes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user"></i> Mon compte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
-                </li>
+
+                <!-- Links that are only visible if the user is logged in -->
+                <?php if (isset($_SESSION['user_id'])): // Check if the user is logged in ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-euro-sign"></i> Mes ventes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Mon compte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                    </li>
+                <?php else: // If the user is not logged in ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

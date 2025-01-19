@@ -127,7 +127,7 @@ button.btn:hover {
     <div class="container">
         <div class="form-container">
             <h2>Login</h2>
-            <form action="login-action.php" method="POST">
+            <form action="./classes/log.php" method="POST">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required placeholder="Enter your email">

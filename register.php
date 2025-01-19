@@ -138,23 +138,20 @@
     <div class="container">
         <div class="form-container">
             <h2>Register</h2>
-            <form action="register-action.php" method="POST">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required placeholder="Choose a username">
-                </div>
+            <form action="./classes/reg.php" method="POST">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required placeholder="Enter your email">
                 </div>
                 <div class="form-group">
+                    <label for="username">Full name</label>
+                    <input type="text" id="full_name" name="full_name" required placeholder="Choose a username">
+                </div>
+                <div class="form-group">
                     <label for="phone">Phone</label>
                     <input type="text" id="phone" name="phone" placeholder="Enter your phone number (optional)">
                 </div>
-                <div class="form-group">
-                    <label for="ville">City</label>
-                    <input type="text" id="ville" name="ville" placeholder="Enter your city (optional)">
-                </div>
+                
                 <div class="form-group">
                     <label for="adresse">Address</label>
                     <textarea id="adresse" name="adresse" placeholder="Enter your address (optional)"></textarea>

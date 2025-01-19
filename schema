@@ -3,6 +3,8 @@ ve-easykamas/
 ├── vente-kamas.php          // Vente Kamas page
 ├── exchange-kama.php        // Exchange Kama page
 ├── profile.php              // Profile page
+├── login.php                // login page
+├── register.php             // register page
 ├── assets/                  // Assets folder for static files
 │   ├── css/
 │   │   └── styles.css        // Custom styles
@@ -20,5 +22,7 @@ ve-easykamas/
 │   └── Server.php            // Server class
 │   └── VenteTicket.php       // VenteTicket class
 │   └── EchangeTicket.php     // EchangeTicket class
+│   └── reg.php               // registration  class
+│   └── log.php     // login  class
 └── sql/
     └── schema.sql            // SQL file with database schema
