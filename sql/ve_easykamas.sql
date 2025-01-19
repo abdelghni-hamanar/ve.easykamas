@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2025 at 01:41 PM
+-- Generation Time: Jan 19, 2025 at 05:52 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -97,11 +97,17 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `country` varchar(100) DEFAULT NULL,
-  `ville` varchar(100) DEFAULT NULL,
   `adresse` text DEFAULT NULL,
-  `role` enum('admin','customer') NOT NULL
+  `role` enum('admin','customer') NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `full_name`, `phone`, `adresse`, `role`, `password`) VALUES
+(2, 'sacripl111@gmail.com', 'two hemza', '0614323456', 'rue 210 imm 4 jhzaekjh hay mofarih 123123', 'customer', '$2y$10$2UM8bapJypDbzCqbiXNZOOD2ZdJeNRQITvn0jqZdWGUEYRPgt2bxi');
 
 -- --------------------------------------------------------
 
@@ -113,10 +119,20 @@ CREATE TABLE `ventetickets` (
   `id` int(11) NOT NULL,
   `id_server` int(11) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL,
+  `char_name` varchar(255) NOT NULL,
   `price_server` decimal(10,2) NOT NULL,
   `quantity` int(11) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
   `status` enum('holde','process','done') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ventetickets`
+--
+
+INSERT INTO `ventetickets` (`id`, `id_server`, `id_user`, `char_name`, `price_server`, `quantity`, `total`, `status`) VALUES
+(1, 15, 2, 'ororra', 0.00, 10, 300.00, 'holde'),
+(2, 9, 2, 'pikini', 30.00, 12, 360.00, 'holde');
 
 --
 -- Indexes for dumped tables
@@ -171,13 +187,13 @@ ALTER TABLE `servers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ventetickets`
 --
 ALTER TABLE `ventetickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
