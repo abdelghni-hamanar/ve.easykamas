@@ -41,7 +41,7 @@
                 <!-- Links that are only visible if the user is logged in -->
                 <?php if (isset($_SESSION['user_id'])): // Check if the user is logged in ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-euro-sign"></i> Mes ventes</a>
+                        <a class="nav-link" href="mesventes.php"><i class="fas fa-euro-sign"></i> Mes ventes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="profile.php"><i class="fas fa-user"></i> Mon compte</a>
