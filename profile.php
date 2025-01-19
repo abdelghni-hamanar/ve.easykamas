@@ -55,29 +55,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Mon compte</h1>
 
         <!-- Profile Form -->
-        <form action="profile.php" method="POST">
-            <div class="mb-3">
-                <label for="full_name" class="form-label">Nom complet</label>
-                <input type="text" class="form-control" id="full_name" name="full_name" value="<?php echo htmlspecialchars($full_name); ?>" required>
-            </div>
+        <form action="./classes/update-profile.php" method="POST">
+    <div class="mb-3">
+        <label for="full_name" class="form-label">Nom complet</label>
+        <input type="text" class="form-control" id="full_name" name="full_name" value="<?php echo htmlspecialchars($full_name); ?>" required>
+    </div>
 
-            <div class="mb-3">
-                <label for="address" class="form-label">Adresse</label>
-                <input type="text" class="form-control" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>" required>
-            </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Adresse</label>
+        <input type="text" class="form-control" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>" required>
+    </div>
 
-            <div class="mb-3">
-                <label for="phone" class="form-label">Numéro de téléphone</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>" required>
-            </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Numéro de téléphone</label>
+        <input type="text" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>" required>
+    </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Mot de passe</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Laissez vide si vous ne voulez pas changer">
-            </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter a new password if you want to change it">
+    </div>
 
-            <button type="submit" class="btn btn-primary">Mettre à jour</button>
-        </form>
+    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+</form>
+
     </div>
 
     <!-- Include Footer -->
