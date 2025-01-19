@@ -77,7 +77,24 @@ try {
                                 <td><?= htmlspecialchars($ticket['total']); ?>€</td>
                                 <td>
                                     <span class="badge 
-                                        <?= $ticket['ticket_status'] == 'Completed' ? 'bg-success' : 'bg-warning'; ?>">
+                                        <?php 
+                                        switch ($ticket['ticket_status']) {
+                                            case 'En attente de livraison':
+                                                echo 'bg-primary';
+                                                break;
+                                            case 'Paiement en cours':
+                                                echo 'bg-warning';
+                                                break;
+                                            case 'Payé':
+                                                echo 'bg-success';
+                                                break;
+                                            case 'Annulé':
+                                                echo 'bg-danger';
+                                                break;
+                                            default:
+                                                echo 'bg-secondary';
+                                        }
+                                        ?>">
                                         <?= htmlspecialchars($ticket['ticket_status']); ?>
                                     </span>
                                 </td>
