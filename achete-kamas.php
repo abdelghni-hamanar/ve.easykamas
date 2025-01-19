@@ -24,18 +24,25 @@ try {
             border-radius: 5px;
         }
 
-        /* Custom Chat Button Style */
-        #openChatSpan {
-            cursor: pointer;
-            color: #ffffff;
-            background-color: #17a2b8;
-            padding: 5px 10px;
+        /* Custom Message Style */
+        .live-chat-msg {
+            background-color: #f8f9fa;
+            padding: 15px;
             border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        .live-chat-msg a {
+            color: #007bff;
+            font-weight: bold;
             text-decoration: none;
         }
 
-        #openChatSpan:hover {
-            background-color: #138496;
+        .live-chat-msg a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -63,10 +70,10 @@ try {
                                 <td><?= htmlspecialchars($server['server_name']); ?></td>
                                 <td><?= htmlspecialchars($server['price']); ?>€/M</td>
                                 <td>
-                                    <!-- Replace badge with Open Live Chat link -->
-                                    <center>
-                                        <a href="javascript:void(0);" id="openChatLink" onclick="openLiveChat()">Cliquez ici pour Vendre</a>
-                                    </center>
+                                    <!-- Replace old button with live chat styled message -->
+                                    <div class="live-chat-msg">
+                                        Cliquez sur le <a href="javascript:void(0);" onclick="openLiveChat()">live chat</a> et demandez vos kamas en live.
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -110,7 +117,7 @@ try {
     </script>
 
 </body>
-<scripts src="assets/js/bootstrap.js"></scripts>
-<scripts src="assets/js/scripts.js"></scripts>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scripts.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </html>
