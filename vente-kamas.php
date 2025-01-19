@@ -22,7 +22,6 @@ try {
     <style>
         .navbar-nav .nav-link.active {
             border-radius: 5px;
-             
         }
     </style>
 </head>
@@ -41,6 +40,7 @@ try {
                         <th>Serveur</th>
                         <th>Prix (Kama)</th>
                         <th>Status</th>
+                        <th>Action</th> <!-- New Action column -->
                     </tr>
                 </thead>
                 <tbody>
@@ -55,23 +55,30 @@ try {
                                         <?= htmlspecialchars($server['status']); ?>
                                     </span>
                                 </td>
+                                <td>
+                                    <!-- Add action button -->
+                                    <?php if ($server['status'] == 'Incomplet'): ?>
+                                        <a href="vip.php" class="btn btn-primary">Vendre Kamas</a>
+                                    <?php else: ?>
+                                        <button class="btn btn-secondary" disabled>Non disponible</button>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="3" class="text-center">Aucun serveur disponible.</td>
+                            <td colspan="4" class="text-center">Aucun serveur disponible.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
             </table>
         </div>
-    </section>
-
+        </section>
     </main>
 
     <?php include_once 'includes/footer.php'; ?>
 </body>
-<scripts src="assets/js/bootstrap.js"></scripts>
-<scripts src="assets/js/scripts.js"></scripts>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scripts.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </html>
