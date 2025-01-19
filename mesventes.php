@@ -79,16 +79,16 @@ try {
                                     <span class="badge 
                                         <?php 
                                         switch ($ticket['ticket_status']) {
-                                            case 'En attente de livraison':
+                                            case 'en attente de livraison':
                                                 echo 'bg-primary';
                                                 break;
-                                            case 'Paiement en cours':
+                                            case 'paiement en cours':
                                                 echo 'bg-warning';
                                                 break;
-                                            case 'Payé':
+                                            case 'payé':
                                                 echo 'bg-success';
                                                 break;
-                                            case 'Annulé':
+                                            case 'annulé':
                                                 echo 'bg-danger';
                                                 break;
                                             default:
