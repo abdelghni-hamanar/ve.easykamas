@@ -1,4 +1,6 @@
 <?php
+
+
 // Database configuration
 $host = 'localhost'; // Database host
 $db_name = 've_easykamas'; // Database name

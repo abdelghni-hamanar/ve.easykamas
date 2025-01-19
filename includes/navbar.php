@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+    // Check if session has already started
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc107;">
     <div class="container">
@@ -38,7 +44,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-euro-sign"></i> Mes ventes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Mon compte</a>
+                        <a class="nav-link" href="profile.php"><i class="fas fa-user"></i> Mon compte</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
