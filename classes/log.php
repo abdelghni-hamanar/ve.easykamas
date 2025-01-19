@@ -43,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['full_name'] = $user['full_name'];
                     $_SESSION['role'] = $user['role'];
+                    $_SESSION['adresse'] = $user['adresse'];
+                    $_SESSION['phone'] = $user['phone'];
                     
                     // Redirect to a welcome page
                     header("Location: ../index.php");
