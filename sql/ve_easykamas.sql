@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2025 at 05:52 PM
+-- Generation Time: Jan 20, 2025 at 03:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,14 +29,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `echangetickets` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `id_server1` int(11) DEFAULT NULL,
   `char1_name` varchar(255) NOT NULL,
   `quantity_1` int(11) NOT NULL,
   `id_server_2` int(11) DEFAULT NULL,
   `char2_name` varchar(255) NOT NULL,
   `quantity_2` int(11) NOT NULL,
-  `status` enum('holde','process','done') NOT NULL
+  `status` enum('en attente de livraison','paiement en cours','payé','annulé') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `echangetickets`
+--
+
+INSERT INTO `echangetickets` (`id`, `user_id`, `id_server1`, `char1_name`, `quantity_1`, `id_server_2`, `char2_name`, `quantity_2`, `status`) VALUES
+(2, 2, 5, 'habazo', 123, 18, 'bzaekjh', 244, 'en attente de livraison'),
+(3, 3, 9, 'one hemza', 123, 23, 'hello', 78, 'en attente de livraison');
 
 -- --------------------------------------------------------
 
@@ -107,7 +116,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `full_name`, `phone`, `adresse`, `role`, `password`) VALUES
-(2, 'sacripl111@gmail.com', 'two hemza', '0614323456', 'rue 210 imm 4 jhzaekjh hay mofarih 123123', 'customer', '$2y$10$2UM8bapJypDbzCqbiXNZOOD2ZdJeNRQITvn0jqZdWGUEYRPgt2bxi');
+(2, 'sacripl111@gmail.com', 'two hemza', '0614323456', 'rue 210 imm 4 jhzaekjh hay mofarih 123123', 'customer', '$2y$10$2UM8bapJypDbzCqbiXNZOOD2ZdJeNRQITvn0jqZdWGUEYRPgt2bxi'),
+(3, 'contact.hamnar@gmail.com', 'abdo hm', '0854321234', 'rue 210 imm 4 jhzaekjh hay mofarih', 'customer', '$2y$10$dTmjf7SGdUvtY0BlI63RO.YirlIaHEBz/BWpW/BJDHnH.yORnH8gi');
 
 -- --------------------------------------------------------
 
@@ -123,7 +133,7 @@ CREATE TABLE `ventetickets` (
   `price_server` decimal(10,2) NOT NULL,
   `quantity` int(11) NOT NULL,
   `total` decimal(10,2) NOT NULL,
-  `status` enum('holde','process','done') NOT NULL
+  `status` enum('en attente de livraison','paiement en cours','payé','annulé') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -131,8 +141,8 @@ CREATE TABLE `ventetickets` (
 --
 
 INSERT INTO `ventetickets` (`id`, `id_server`, `id_user`, `char_name`, `price_server`, `quantity`, `total`, `status`) VALUES
-(1, 15, 2, 'ororra', 0.00, 10, 300.00, 'holde'),
-(2, 9, 2, 'pikini', 30.00, 12, 360.00, 'holde');
+(3, 9, 2, 'pikini', 30.00, 12, 360.00, 'annulé'),
+(4, 2, 3, 'one hemza', 55.00, 10, 550.00, 'en attente de livraison');
 
 --
 -- Indexes for dumped tables
@@ -143,6 +153,7 @@ INSERT INTO `ventetickets` (`id`, `id_server`, `id_user`, `char_name`, `price_se
 --
 ALTER TABLE `echangetickets`
   ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
   ADD KEY `id_server1` (`id_server1`),
   ADD KEY `id_server_2` (`id_server_2`);
 
@@ -175,7 +186,7 @@ ALTER TABLE `ventetickets`
 -- AUTO_INCREMENT for table `echangetickets`
 --
 ALTER TABLE `echangetickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `servers`
@@ -187,13 +198,13 @@ ALTER TABLE `servers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ventetickets`
 --
 ALTER TABLE `ventetickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -203,8 +214,9 @@ ALTER TABLE `ventetickets`
 -- Constraints for table `echangetickets`
 --
 ALTER TABLE `echangetickets`
-  ADD CONSTRAINT `echangetickets_ibfk_1` FOREIGN KEY (`id_server1`) REFERENCES `servers` (`id`),
-  ADD CONSTRAINT `echangetickets_ibfk_2` FOREIGN KEY (`id_server_2`) REFERENCES `servers` (`id`);
+  ADD CONSTRAINT `echangetickets_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `echangetickets_ibfk_2` FOREIGN KEY (`id_server1`) REFERENCES `servers` (`id`),
+  ADD CONSTRAINT `echangetickets_ibfk_3` FOREIGN KEY (`id_server_2`) REFERENCES `servers` (`id`);
 
 --
 -- Constraints for table `ventetickets`
