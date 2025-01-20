@@ -29,7 +29,7 @@
                     <a class="nav-link active" href="index.php">ACCUEIL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ECHANGER DES KAMAS</a>
+                    <a class="nav-link" href="exchange-kama.php">ECHANGER DES KAMAS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="vente-kamas.php">VENDRE KAMAS</a>
@@ -42,6 +42,9 @@
                 <?php if (isset($_SESSION['user_id'])): // Check if the user is logged in ?>
                     <li class="nav-item">
                         <a class="nav-link" href="mesventes.php"><i class="fas fa-euro-sign"></i> Mes ventes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mesechanges.php"><i class="fas fa-euro-sign"></i> Mes Echanges</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="profile.php"><i class="fas fa-user"></i> Mon compte</a>
